@@ -1,0 +1,6 @@
+{
+    "name": "circleci-with-zeith-now-staging",
+    "alias": [
+        "staging-circleci-now.niccai.com"
+    ]
+}
