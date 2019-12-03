@@ -28,9 +28,8 @@ const router = routerMiddleware(history);
 const enhancer = applyMiddleware(thunk, sagaMiddleware, router);
 
 function configureStore(initialState?: any) {
+  sagaMiddleware.run(rootSaga);
   return createStore(persistedReducer, initialState, enhancer);
 }
-
-//sagaMiddleware.run(rootSaga);
 
 export default { configureStore, history };
