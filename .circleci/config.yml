@@ -64,7 +64,7 @@ jobs:
                     fi
 workflows:
     version: 2
-    test-deploy-purge:
+    reactrebound-master:
         jobs:
             - checkout
             - unit-test:
