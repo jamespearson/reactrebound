@@ -1,13 +1,15 @@
-import { all } from 'redux-saga/effects';
+import { all, fork } from 'redux-saga/effects';
 
+import articlesSaga from "./articles"
+import authenticationSaga from "./authentication"
 /**
  * rootSaga
  */
 export default function* root() {
 
     yield all([
-        // fork(calDav),
-        // fork(authRefresh),
+        fork(articlesSaga),
+        fork(authenticationSaga),
         // fork(calendarsRefresh)
     ]);
 

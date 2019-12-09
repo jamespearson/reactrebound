@@ -1,34 +1,31 @@
 import * as React from 'react';
-import { Component } from 'react';
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'connected-react-router';
-import Routes from '../Routes';
+import Routes from '../routes';
 import { History } from 'history';
 import { PersistGate } from 'redux-persist/integration/react'
 import { persistStore } from 'redux-persist'
-
 
 type Props = {
   store: any;
   history: History<any>;
 };
 
-export default class Root extends Component<Props> {
-  render() {
+export default (props: Props) => {
 
-    const { store, history } = this.props;
-    let persistor = persistStore(store)
+  const { store, history } = props;
+  let persistor = persistStore(store)
 
-    return (
-      <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <ConnectedRouter history={history}>
+  return (
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <ConnectedRouter history={history}>
 
-            <Routes />
+          <Routes />
 
-          </ConnectedRouter>
-        </PersistGate>
-      </Provider>
-    );
-  }
+        </ConnectedRouter>
+      </PersistGate>
+    </Provider>
+  );
+
 }
